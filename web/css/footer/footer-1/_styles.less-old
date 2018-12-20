@@ -1,0 +1,562 @@
+/**
+ * Footer 1
+ */
+
+.footer-wrapper {
+    background-color: #282830;
+    padding-top: 60px;
+    color: #fff;
+    text-align: center;
+
+    a {
+        color: #fff;
+    }
+}
+
+.footer-links {
+    margin-bottom: 85px;
+
+    ul li {
+        display: inline-block;
+        margin: 0 32px;
+
+        a {
+            text-transform: uppercase;
+            .transition(.2s);
+        }
+    }
+}
+
+.footer-logo {
+    margin-bottom: 38px;
+}
+
+.social-network {
+    margin-bottom: 45px;
+
+    ul {
+        li {
+            display: inline-block;
+            margin: 0 10px;
+            vertical-align: top;
+
+            a {
+                display: block;
+                width: 44px;
+                height: 44px;
+                text-align: center;
+                line-height: 44px;
+                color: #fff !important;
+                background-color: #3e3e45;
+                .border_radius(22px);
+                .transition(.2s);
+
+                span span {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px 0;
+}
+
+
+/********** Modified css for aeroflow*******/
+//To separate the header from the slideshow
+    .mobile-sld-show{
+        display: none;
+    }
+.header-style-1{
+    position:relative !important;
+    background-color: #fff !important;
+}
+//To increase logo size
+.logo-wrapper{
+    width:300px;
+    }
+.logo-content{
+    margin: 0px !important;
+}
+.logo-content a{
+    padding: 0px !important;
+}
+.sm_megamenu_wrapper_horizontal_menu .sm_megamenu_menu > li > a {
+    line-height: 65px !important;
+}
+#footer{
+     display:none;
+} 
+#footer-signup-img{ 
+      padding-top: 10px;
+    } 
+/**** Logo and nav button changes in mobile ***/
+@media (max-width: 991px) {
+    .logo-content {
+          text-align: left !important;
+          margin: 0px !important;
+      }
+    .logo img{
+        width: 218px !important;
+        height: 53px !important;
+    }
+    .btn-mobile{
+        margin-top:4px;
+    }
+    .pricing-block{
+        margin-top:0px!important;
+    }
+  
+    .description-block{
+       margin-bottom: 50px;
+    }
+    #footer-signup-img{ 
+        display: none; 
+    } 
+    .footertitle{ 
+        padding-bottom:72px; 
+    } 
+    #yt-totop-fix{ 
+        display:none !important; 
+    } 
+    #footer { 
+        bottom: 0; 
+        width: 100%; 
+        position: fixed; 
+        height: 72px; display:block!important; 
+        background-color: #f5f5f5; 
+    } 
+    .footer-block { 
+        margin: 0px; 
+    }
+    .worksblock{ 
+        margin-left: 0px !important;
+    }
+    
+}
+ 
+//For menus colors
+.sm_megamenu_title{
+    font-weight:500 !important;
+    font-size:20x !important;
+}
+.sm_megamenu_lv1 a{
+    text-decoration: none !important;
+    color:#AAD1CA !important;
+    font-size:16px !important;
+}
+.sm_megamenu_lv1 a:hover{
+    text-decoration: none !important;
+    color:#E8A296 !important;
+
+}
+.owl-item img{
+    width:100% !important;
+}
+.slidershow-loading{
+    background-color: #c6c6c6;
+}
+//For my account and cart links
+.account-header{
+    background: url(../images/icon-image.png) no-repeat -123px -32px #ccc !important;
+}
+
+//To remove a circle black box around menus
+.cms-index-index .header-style-1 .sm_megamenu_wrapper_horizontal_menu .sm_megamenu_menu > li.home-item > a:before,
+.cms-index-index .header-style-1 .sm_megamenu_wrapper_horizontal_menu .sm_megamenu_menu > li:hover > a:before {
+  background-color: transparent!important;
+}
+//To align menus right in desktop
+.sm_megamenu_wrapper_horizontal_menu .sm_megamenu_menu {
+  text-align:right !important; 
+}
+/*** Mobile menu color changed it to black ****/
+.btn-mobile .button-mobile {
+  color: #000 !important;
+}
+/**** Subscribe button white button and background removed ****/
+.btn-shopnow{
+    border: none;
+    background-color: transparent !important;
+}
+
+.product-explore{
+    background-color: #fff !important;
+}
+#pricingtitle {
+    text-align: center;
+    font-size: 30px;
+    line-height: 36px;
+    color: #4E4949;
+    padding-top: 10px;
+}
+#customers { 
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; 
+    border-collapse: collapse; 
+    width: 100%; 
+} 
+#customers td, #customers th{ 
+    border: 1px solid #ddd; 
+    padding: 8px; 
+    font-size: 18px;
+    color: #000;
+} 
+
+#customers tr:nth-child(even){ 
+    background-color: #f2f2f2; 
+    text-align: center; 
+} 
+#customers tr { 
+    text-align: center; 
+} 
+#customers tr:hover { 
+    background-color: #E8A296; 
+} 
+#customers th { 
+    font-size: 25px; 
+    padding-top: 12px; 
+    padding-bottom: 12px; 
+    text-align: center; 
+    background-color: #AAD1CA; 
+    color: white; 
+} 
+@media only screen and (max-width: 600px) { 
+    #customers th { 
+        font-size: 12px; 
+    } 
+}
+@media only screen and (max-width: 400px) { 
+
+    #customers td { 
+    border: 1px solid #ddd; 
+    padding: 10px 1px 10px 1px; 
+    font-size: 12px ;
+    color: #000;
+} 
+    #customers th { 
+        border: 1px solid #ddd; 
+        padding: 8px 1px 8px 1px; 
+        font-size: 11px !important;
+        color: #000;
+    } 
+}
+
+.half{
+    padding-top: 20px;
+    
+}
+.half h1{
+ color: #272727;
+ font-size: 20px;
+ font-weight: bold;
+ margin-bottom: 10px !important;
+}
+.half h3{
+ color: #272727;
+ font-size: 18px;
+ padding: 0 0 10px 0;
+ font-weight: 600 !important;
+}
+.half ul{
+    list-style: inside !important;
+}
+.half ul li{
+    color: #888;
+    list-style-image: url(../../images/green_bullet_03.png);
+    padding: 2px 2px 2px 14px;
+    font-size:16px;
+    line-height:22px;
+}
+.babymoreinfotitle { 
+    max-width: 1280px; 
+    margin: 0px auto; 
+    color: #4E4949; 
+    text-align: center; 
+    font-size: 30px; 
+    line-height: 36px; 
+    font-weight: bold;
+} 
+.half h2{ 
+    color: #272727; 
+    font-size: 20px; 
+    line-height: 26px; 
+    text-align: left; 
+    padding: 10px 0px 14px 0; 
+    font-weight: bold;
+} 
+.half p{ 
+    color: #4E4949; 
+    font-size: 16px; 
+    line-height: 22px; 
+    margin-top: 10px; 
+} 
+
+#sizechart { 
+    padding-left: 100px; 
+} 
+#sizes { 
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; 
+    border-collapse: collapse; 
+    width: 100%; 
+} 
+#sizes td { 
+    border: 1px solid #ddd; 
+    padding: 8px; 
+    font-size: 18px !important; 
+    color: #1A1919;
+} 
+#sizes tr:nth-child(even){ 
+    background-color: #f2f2f2; 
+    text-align: center; 
+} 
+#sizes tr { 
+    text-align: center; 
+} 
+#sizes tr:hover { 
+    background-color: #E8A296; 
+} 
+#sizes th { 
+    font-size: 25px; 
+    padding-top: 12px; 
+    padding-bottom: 12px; 
+    text-align: center; 
+    background-color: #AAD1CA; 
+    color: white; 
+}
+#worktitle{
+    max-width:1280px;
+    
+}
+.works-block{
+    background-color: #EFF0EB;
+}
+#worktitle p{
+    text-align: center;
+    font-size:30px;
+    line-height:25px;
+    padding-top:25px;
+    
+}
+.description-block{
+        margin-bottom: 20px !important;
+    }
+.home-page-1 { 
+    padding-top:0px !important; 
+} 
+
+.happy-baby-block { 
+    //margin-top:50px; 
+} 
+.happy-baby-block p {
+    font-size: 30px; 
+    line-height: 36px; 
+    padding-top: 25px; 
+    color: #4E4949; 
+    }
+
+.brand-table-block { 
+    margin-top:50px; 
+} 
+.happy-baby-more { 
+    margin-top:30px; 
+}
+/**** works block changes ***/
+
+.works-block { 
+    margin-top:15px; 
+} 
+.workstitle{
+    max-width: 1280px;
+    margin: 0px auto;
+    text-align: center;
+    font-size: 30px;
+    line-height: 25px;
+    padding-top: 15px;
+    color: #1A1919;
+    font-size:30px;
+    }
+.worksblock{ 
+    display: inline; 
+    text-align: center; 
+    float: left; 
+    margin-top: 15px; 
+    background-color: #EFF0EB; 
+    border-radius: 3px; 
+} 
+.worksblock p { 
+    color: #272727; 
+    font-size: 18px; 
+} 
+.worksblock h2 { 
+    color: #272727; 
+    font-size: 18px; 
+} 
+.worksblock h1{ 
+    margin-bottom: 0px; 
+    font-size: 32px; 
+    color: #1A1919; 
+    text-align: center; 
+    
+} 
+.worksblock h3 { 
+    color: #272727; 
+    line-height: 1.2em; 
+    font-size: 18px; 
+    padding: 10px; 
+    font-weight: 600;
+} 
+.center-img { 
+    width:100%; 
+    height: 10px; 
+}
+
+/*** accordion styles ***/
+.panel{
+    margin-bottom: 0px !important;
+}
+.panel p {  //For collapsed text
+    font-size: 16px; 
+    line-height: 22px; 
+    padding: 5px 18px 0 18px !important; 
+    color: #4E4949; 
+   
+  }
+.accordion:after { 
+    content: '\02795'; /* Unicode character for "plus" sign (+) */ 
+    font-size: 13px; 
+    color: #777; 
+    float: right; 
+    margin-left: 5px; 
+} 
+.accordianactive:after { 
+    content: "\2796"; /* Unicode character for "minus" sign (-) */ 
+} 
+.accordion { 
+    background-color: #EFF0EB; 
+    color: #444; 
+    cursor: pointer; 
+    padding: 18px; 
+    width: 100%; 
+    border: none; 
+    text-align: left; 
+    outline: none; 
+    font-size: 15px; 
+    transition: 0.4s; 
+    
+} 
+.accordianactive, .accordion:hover { 
+    background-color: #E8A296; 
+}
+.acc-padding{
+    padding-top: 23px;
+}
+/*** footer styles ***/
+.footer-wrapper{
+    background-color: #EFF0EB !important;
+    padding-top:0px !important;
+}
+.footertitle p { 
+    text-align: center; 
+    font-size: 30px; 
+    line-height: 36px; 
+    color: #4E4949; 
+    margin-top: 5px;
+} 
+.footertitle h3 { 
+    color: #888; 
+    font-size: 16px; 
+    line-height: 22px; 
+    text-align: center; 
+    font-weight: bold;
+    padding-bottom:15px;
+}
+.footer-bottom {
+    display:none !important;
+}
+@media (max-width: 600px) {
+  .worksblock {
+    width: 100%;
+  }
+}
+/**** product page styles ***/
+.product-opions-wrapper{
+    margin-bottom: 0 !important;
+    padding-top:0 !important;
+}
+.subscription-container{
+    margin-top: 0 !important;
+}
+.media-info-product{
+    margin-bottom: 0px !important;
+}
+.product-info-main{
+    margin-bottom: 0px !important;
+}
+.product.info.detailed{
+    padding:0px !important;
+}
+.breadcrumbs{
+    text-align:left !important;
+}
+/**** Shippping page ****/
+.step-content{
+    margin:0 !important;
+}
+.step-title{
+    border-bottom: 0px!important;
+    font-weight:400 !important;
+}
+
+@media (max-width: 991px) {
+    .desktop-sld-show{
+        display: none;
+    }
+    .mobile-sld-show{
+        display: block;
+    }
+    .workstitle{
+        padding-top: 15px !important;
+    }
+    .worksblock{
+        margin-top: 0px !important;
+        padding:5px 0 0 0 !important;
+            
+    }
+    .worksblock h1{
+        margin-bottom: 0px !important;
+
+    }
+    
+    .happy-baby-block p{
+        padding-top: 5px !important;
+    }
+    .happy-baby-more{
+        margin-top:0px !imporant;
+    }
+    .babymoreinfotitle{
+        padding: 0 !important;
+    }
+    .half p{
+        margin:0 !important;
+    }
+    .half h2{ 
+        font-size: 16px !important;
+    }
+    .sizechart{
+        padding-bottom: 10px;
+    }
+}
+/*@media (min-width: 768px) and (max-width: 991px) {
+  .cms-index-index.header-1-style.home-1-style .header-style-1 {
+    background-color: #fff !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .cms-index-index.header-1-style.home-1-style .header-style-1 {
+    background-color: #fff !important;
+  }
+}*/

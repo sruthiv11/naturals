@@ -1,0 +1,143 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * Product view template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View
+ */
+?>
+<?php $_helper = $this->helper('Magento\Catalog\Helper\Output'); ?>
+<?php 
+
+    $_product = $block->getProduct(); 
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $product = $objectManager->get('Magento\Framework\Registry')->registry('current_product');//get current product
+    if($product->getTypeId()!='simple' && $product->getTypeId()!='bundle' && $product->getTypeId()!='grouped'
+&& $product->getTypeId()!='downloadable'&& $product->getTypeId()!='virtual'){
+        $productTypeInstance = $product->getTypeInstance();
+        $usedProducts = $productTypeInstance->getUsedProductCollection($product)->addAttributeToSelect('*');
+
+     }
+	$status=$product->getTypeId();
+
+?>
+
+<div class="product-add-form">
+    <form data-product-sku="<?= $block->escapeHtml($_product->getSku()) ?>"
+          action="<?= /* @NoEscape */ $block->getSubmitUrl($_product) ?>" method="post"
+          id="product_addtocart_form"<?php if ($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+        <input type="hidden" name="product" value="<?= /* @escapeNotVerified */ $_product->getId() ?>" />
+        <input type="hidden" name="selected_configurable_option" value="" />
+        <input type="hidden" name="related_product" id="related-products-field" value="" />
+        <input type="hidden" name="status" id="status" value="<?php echo $status;?>" />
+        <?= $block->getBlockHtml('formkey') ?>
+        <?= $block->getChildHtml('form_top') ?>
+        <?php if (!$block->hasOptions()):?>
+            <?= $block->getChildHtml('product_info_form_content') ?>
+        <?php else:?>
+            <?php if ($_product->isSaleable() && $block->getOptionsContainer() == 'container1'):?>
+                <?= $block->getChildChildHtml('options_container') ?>
+            <?php endif;?>
+        <?php endif; ?>
+
+        <?php if ($_product->isSaleable() && $block->hasOptions() && $block->getOptionsContainer() == 'container2'):?>
+            <?= $block->getChildChildHtml('options_container') ?>
+        <?php endif;?>
+        <?= $block->getChildHtml('form_bottom') ?>
+    </form>
+</div>
+
+<?php 
+    $sample=array();
+    if($status!='simple' && $status!='bundle'  && $status!='grouped' && $status!='downloadable' && $status!='virtual'){
+      foreach ($usedProducts as $child){
+            if($child->getDescription())
+            {
+                           $childId=$child->getID();
+                           $childDesc=$child->getDescription();
+                           $description=array("id" => $childId,"description" => addslashes($childDesc));  
+						  // 	echo $childDesc;
+                         	
+						//$description=str_replace("'", "\'", $description);
+						  $description=str_replace("\r", "\\r", $description);
+						   $description=str_replace("\n", "\\n", $description);
+						  // $description=str_replace("\\'", "hello\'", $description);
+                           array_push($sample,$description);
+						  
+						   
+                         
+            }
+        }
+                           $data=json_encode($sample);                          
+  } 
+?>
+
+<script>
+   require([
+        'jquery',
+        'priceBox'
+    ], function($){
+		var status=document.getElementById('status').value;
+		console.log(status);		
+                   if(status!='simple'){
+                  jQuery(document).on('click', '.swatch-option',function(){
+                         var selected_options = {};
+                        jQuery('div.swatch-attribute').each(function(k,v){
+                         var attribute_id    = jQuery(v).attr('attribute-id');
+                         var option_selected = jQuery(v).attr('option-selected');
+                        //console.log(attribute_id, option_selected);
+                        if(!attribute_id || !option_selected){ return;}
+                        selected_options[attribute_id] = option_selected;
+                      });
+
+                      var product_id_index = jQuery('[data-role=swatch-options]').data('mageSwatchRenderer').options.jsonConfig.index;
+                      var found_ids = [];
+           jQuery.each(product_id_index, function(product_id,attributes){
+            var productIsSelected = function(attributes, selected_options){
+                return _.isEqual(attributes, selected_options);
+            }
+            if(productIsSelected(attributes, selected_options)){
+                found_ids.push(product_id);
+            } 
+        });
+        var optionId = found_ids.toString();
+        var data='<?php echo json_encode($sample); ?>';
+		
+               var obj = JSON.parse(data);
+               for(var i=0;i<obj.length;i++)
+               {
+                if(optionId == obj[i].id)
+               {
+                 document.getElementById("description").innerHTML = obj[i].description;
+
+                 //console.log(obj[i].description);
+
+
+                }
+
+            }
+                                       
+                });    
+
+          }
+
+
+        var dataPriceBoxSelector = '[data-role=priceBox]',
+            dataProductIdSelector = '[data-product-id=<?= $block->escapeHtml($_product->getId()) ?>]',
+            priceBoxes = $(dataPriceBoxSelector + dataProductIdSelector);
+
+        priceBoxes = priceBoxes.filter(function(index, elem){
+            return !$(elem).find('.price-from').length;
+        });
+
+        priceBoxes.priceBox({'priceConfig': <?= /* @escapeNotVerified */ $block->getJsonConfig() ?>});
+
+          
+    });
+</script>

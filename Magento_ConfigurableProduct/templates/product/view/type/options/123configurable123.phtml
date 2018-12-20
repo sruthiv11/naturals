@@ -1,0 +1,94 @@
+<?php
+
+  $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+  $product = $objectManager->get('Magento\Framework\Registry')->registry('current_product');
+
+  $description=[];
+
+  //get all childrens
+  $_children = $product->getTypeInstance()->getUsedProducts($product);
+
+  foreach ($_children as $child){
+            if($child->getDescription())
+            {
+            $description[$child->getID()]=$child->getDescription();
+            }
+        }
+        $description["product"]=$product->getDescription();
+
+?>
+<?php if ($_product->isSaleable() && count($_attributes)):?>
+    <?php foreach ($_attributes as $_attribute):?>
+        <div class="field configurable required">
+            <label class="label" for="attribute<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>">
+                <span><?php $label=$block->escapeHtml($_attribute->getProductAttribute()->getStoreLabel());
+                echo $label; 
+                ?></span>
+            </label>
+            <div class="control">
+                <select name="super_attribute[<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>]"
+                        data-validate="{required:true}"
+                        id="attribute<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>"
+                        class="super-attribute-select" data-placholder="<?php /* @escapeNotVerified */ 
+                        echo "$label:";
+                    ?>">
+                    <option value="">
+                    </option>
+                </select>
+            </div>
+        </div>
+    <?php endforeach; 
+
+
+//code for product option change
+ $get=json_decode($block->getJsonConfig($option_txt),true);
+$checkOption=[];
+ foreach ($get['attributes'] as $key => $value) {
+     if($value['code']=='color')
+     {
+        foreach ($value['options'] as $k => $v) {
+$checkOption[$v['id']]=$v['products'][0];
+
+        }
+     }
+ }
+//code for product option change end:
+
+
+    ?>
+    <script type="text/x-magento-init">
+        {
+            "#product_addtocart_form": {
+                "configurable": {
+                    "spConfig": <?php echo json_encode($block->getJsonConfig($option_txt)); ?>
+                }
+            }
+        }
+    </script>
+<?php endif;?>
+
+
+<script type="text/javascript">
+
+    require(['jquery'],function($){
+    var checkOption=<?php echo json_encode($checkOption);?>;
+    var description=<?php echo json_encode($description);?>;
+    jQuery(document).ready(function() {
+alert(description);
+        $("#attribute90").on('change',function(){
+           var id= $(this).val();
+           if(description[checkOption[id]])
+           {
+            //get child product description
+           $('div[id="product.info.description"]').html(description[checkOption[id]]);
+           }
+           else{
+            //if child product dont have description show , main product description
+           $('div[id="product.info.description"]').html(description["product"]);
+
+           }
+        });
+
+   });
+});
+</script>

@@ -1,0 +1,330 @@
+.naturals-block{
+        margin-top:0px!important;
+    }
+ .description-block1{
+       margin-bottom: 50px;
+    }
+
+.h6 {
+    font-size: 12px;
+    font-weight: 200;
+}
+.naturals-block3{
+    background-color: white;
+}
+
+.naturalsblock h3 { 
+    color: #888A40; 
+    line-height: 1.2em; 
+    font-size: 18px; 
+    padding: 10px; 
+    font-weight: 300;
+} 
+
+
+.naturals-block4 p {
+    font-size: 30px;
+    line-height: 36px;
+    padding-top: 25px;
+    color: #67683E;
+    font-family: Apple Chancery;
+}
+
+
+.panel-body{
+        color: #888A40;
+
+}
+.naturals-title{
+            color: #888A40;
+
+}
+.bgcol{
+    background-color: antiquewhite;
+}
+
+.panel-heading .accordion-toggle:after {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+    content: "\e259";    /* adjust as needed, taken from bootstrap.css */
+    float: right;        /* adjust as needed */
+    color: balck;    
+    font-size: 20px; /* adjust as needed */
+    font-weight: 100;
+    color:#5B6845;
+}
+.panel-heading .accordion-toggle.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\e260"; 
+    font-size: 20px; /* adjust as needed, taken from bootstrap.css */
+     font-weight: 100;
+    color:#5B6845;
+}
+
+#a:hover, a:focus{
+    outline: none;
+    text-decoration: none;
+  
+}
+#accordion .panel{
+    box-shadow: none;
+    border: none;
+    margin-bottom: 6px;
+}
+#accordion .panel-heading{
+    background-color:#fff;
+    padding:0;
+}
+#accordion .panel-title a{
+    display: block;
+    padding:14px 28px;
+    font-weight: bold;
+    position: relative;
+    border-bottom:0 none;
+    background:#dfeae085;
+    color: #5B6845!important;
+    font-family: "Crimson Text";
+    font-size: 20px;      
+    letter-spacing: 1px;
+}
+#accordion .panel-title a.collapsed{
+    border-top:0;
+    color:black;
+    background:#fff;
+}
+#accordion .panel-title a:before,
+#accordion .panel-title a.collapsed:before{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color:#fff;
+    position: absolute;
+    top:10px;
+    right:12px;
+    font-size: 14px;
+    line-height: 24px;
+}
+#accordion .panel-title a.collapsed:before{
+    color:#333;
+}
+#accordion .panel-body{
+    color:#888A40;
+    font-size: 14px;
+    line-height: 20px;
+    background:#dfeae085;
+    padding: 5px 27px 15px;
+    border-top:0 none;
+}
+
+
+.account-header::before{
+background:none!important;
+}
+.footertitle{padding:1% 0; }
+.account-header{
+margin-top: 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #AAD1CA !important;
+    text-transform: uppercase;
+    float: left!important;
+    width: 200px;
+   height:50px;
+background:none!important;
+}
+.page-main{
+overflow-x:hidden!important;}
+@media screen and (max-width: 991px) {
+.account-header{
+margin-top: 14px!important;
+    font-size: 15px;
+      width: 25px!important;
+    height: 25px!important;
+}
+.btn-mobile {
+    margin-left: 14px!important;
+}
+.content-dropdown{margin-top:12px!important;}
+#footer1 {
+   bottom: 0px;
+   width: 100%;
+   position: fixed;
+   height: 72px;
+  z-index:9999;
+  background-color:transparent;
+ }
+}
+
+#naturalstitle,.description-block p{   
+    text-align: center;
+    font-size: 30px;
+    line-height: 36px;
+    padding-top: 10px;
+    color: #5B6845;
+    font-family: "Crimson Text script=all rev=1", "Adobe Blank";  
+    font-weight: 400;
+    font-style: italic;
+}
+
+a.product-item-link{
+    color:#888A40!important;
+    font-weight:normal;
+    font-family:'Open Sans';
+    font-size:17px;
+}
+.price{   
+    font-size: 20px!important; 
+    font-weight: 600;
+}
+.um-prodslider .tocart:hover{
+    background:none!important;
+    color:#444!important;
+    font-family: 'Open Sans'; 
+    font-size: 11px;   
+    text-transform: uppercase;
+}
+.tocart,.tocart:hover,.tocart:focus{
+    background:none!important;
+    color:#444!important;
+    font-family: 'Open Sans'; 
+    font-size: 11px;   
+    text-transform: uppercase;
+}
+.products-grid .product-item-photo .product-image-container{
+    height:200px;
+}
+.product-item-name{
+    overflow:hidden;
+}
+.um-prodslider .tocart::before{
+    display:none;
+}
+.h6{    
+    margin: 20px; line-height: 15px;  
+    text-align: justify;
+    color:#696969;
+}
+.lazyload{
+    height:200px;
+}
+.product-item-name {   
+    display: inline-flex;   
+    height: 48px;
+}
+
+
+.um-prodslider .tocart::before {
+	display: none;
+}
+
+.h6 {
+	margin: 20px;
+	line-height: 15px;
+	text-align: justify;
+	color: #696969;
+}
+
+.lazyload {
+	height: 200px
+}
+
+.product-item-name {
+	display: inline-flex;
+	height: 48px;
+}
+
+#accordion .panel-title a {
+	color: #5B6845!important;
+	font-family: "Crimson Text";
+	font-size: 21px;
+	letter-spacing: 2px;
+}
+
+.panel-heading .accordion-toggle:after,
+.panel-heading .accordion-toggle.collapsed:after {
+	font-size: 20px;
+	font-weight: 100;
+	color: #5B6845;
+}
+
+span.sm_megamenu_title {
+	color: #5B6845;
+	font-family: 'Crimson Text';
+	font-weight: 600!important;
+	font-size: 18px!important;
+}
+.fa-arrow-circle-left:before {
+    content: "\f104";
+top: 18%;
+    position: absolute;
+    right: 41%;
+    color: #a9a9a9;
+}
+.fa-arrow-circle-right:before {
+ content: "\f105";
+    top: 18%;
+    position: absolute;
+    left: 41%;
+    color: #a9a9a9;
+}
+.naturalsblock h3 {
+    color: #888A40;
+    line-height: 1.2em;
+    font-size: 18px;
+    padding: 10px;
+}
+
+#naturalstitle, .description-block p {
+    text-align: center;
+    font-size: 30px;
+    line-height: 36px;
+    padding-top: 10px;
+    color: #5B6845;
+    font-family: "Crimson Text script=all rev=1", "Adobe Blank";
+    font-weight: 400;
+    font-style: italic;
+}
+.um-prodslider .tocart span{border: solid 1px #F5F6FA;
+    background: #F5F6FA!important;
+    padding: 10px 25px !important;
+    border-radius: 30px!important;
+    margin: 10px;
+    color: #9FBB78!important;
+}
+.um-prodslider .tocart {
+    padding: 5px 18px !important;
+    line-height: 0px !important;
+    height: 42px !important;}
+.um-prodslider .actions-primary{margin-top: 3%;}
+a.logo{margin: 10px;}
+a.img-popup img {
+    margin-top: 23px;
+}
+/**slider block****/
+.owl-prev:before,.owl-next:before{
+display:none!important;
+}
+.btn-shopnow {border:none!important;}
+.owl-prev{ 
+   left: 0% !important;
+}
+.owl-next{
+    right: 0% !important;}
+.owl-next,.owl-prev{
+border:solid 1px #a9a9a9!important;
+width:40px!important;
+height:40px!important;
+border-radius:50%!important;
+     font-size: 40px!important;
+ position: absolute !important;
+    top: 45% !important;
+    color: #a9a9a9!important;
+    background: none!important;
+}
+.natural{
+    position: absolute;
+    top: 70px;
+    left:550px;
+}
+button#product-addtocart-button{
+	background-color: #9FBB78!important;
+}

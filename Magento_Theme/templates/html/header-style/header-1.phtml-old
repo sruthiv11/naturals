@@ -1,0 +1,91 @@
+<div class="header-container header-style-1">
+	<div class="row">
+		<div class="col-lg-2 col-md-6 col-xs-8">
+			<div class="logo-container">
+				<?php echo $block->getChildHtml('logo_theme'); ?>
+			</div>
+		</div>
+		
+		<div class="col-lg-8 col-md-4 col-xs-2">
+			<div class="container-menu">
+				<?php
+				if($_config->getGeneral('menu_style') == 'megamenu'){
+					echo $block->getChildHtml('navigation-header-megamenu');
+				} else {
+					echo $block->getChildHtml('navigation-header');
+				}
+				?>
+				
+				<div class="navigation-mobile-container">
+					<?php echo $block->getChildHtml('navigation.mobile'); ?>
+				</div>
+			</div>
+		
+		</div>
+	<div class="col-lg-2 col-md-2 col-xs-2"> 
+			<div class="customer-action">
+				<div class="minicart-header">
+					<div class="minicart-content">
+						<?php echo $block->getChildHtml('cart-header'); ?>
+					</div>
+				</div>
+				
+				<div class="account-header-aero">
+					<div class="content-dropdown">
+						<div class="account-title"><?php echo __("My Account")?></div>
+						<?php echo $block->getChildHtml('header.links'); ?>
+						<?php //echo $block->getChildHtml('language-header'); ?>
+						<?php //echo $block->getChildHtml('currency-header'); ?>
+					</div>
+				</div>
+				
+				<!--<div class="search-header">
+					<?php //echo $block->getChildHtml('search-header'); ?>
+				</div>-->
+			</div>
+		</div>  
+            
+	</div>
+</div>
+
+<?php if($_config->getGeneral('menu_ontop') == 1){ ?>
+	<script type="text/javascript">
+		require([
+			'jquery'
+		], function ($) {
+			$window = $(window);
+			if($('.header-style-1').length){
+				menu_offset_top = 200;
+				function processScroll() {
+					var scrollTop = $window.scrollTop();
+					if ( scrollTop >= menu_offset_top) {
+						$('.header-style-1').addClass('menu-on-top');
+						$('body').addClass('body-on-top');
+					} else if (scrollTop <= menu_offset_top) {
+						$('.header-style-1').removeClass('menu-on-top');
+						$('body').removeClass('body-on-top');
+					}
+				}
+				processScroll();
+				$window.scroll(function(){
+					processScroll();
+				});
+			}
+		});
+	</script>
+<?php } ?>
+
+<script type="text/javascript">
+	require([
+	    'jquery',
+		'domReady!',
+	], function ($) {
+		$(".search-header .input-text,.search-header .block-content .btn-search-header").focus(function() {
+			$(".search-header").addClass("show");
+		});
+		
+		$(".search-header .input-text,.search-header .block-content .btn-search-header").blur(function() {
+			$(".search-header").removeClass("show");
+		});
+	});
+</script>

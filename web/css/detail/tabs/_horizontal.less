@@ -1,0 +1,53 @@
+﻿.default-style {
+    .resp-accordion {
+        display: none;
+    }
+
+    .resp-tabs-list {
+        display: table;
+        width: 100%;
+        border-bottom: 2px solid #eae9ef;
+
+        li {
+            float: left;
+            margin-right: 40px;
+            display: block;
+            font-size: 171.428%;
+            color: #83879c;
+            cursor: pointer;
+            font-weight: 600;
+            padding-bottom: 10px;
+            border-bottom: 2px solid transparent;
+            position: relative;
+            bottom: -2px;
+            .transition(.3s);
+
+            a {
+                color: inherit;
+            }
+
+            &:hover {
+                color: #373a49;
+            }
+
+            &.active {
+                border-color: #373a49;
+                color: #373a49;
+            }
+        }
+    }
+
+    .resp-tabs-container {
+        clear: both;
+        padding: 40px 0;
+    }
+}
+
+/* RTL */
+.direction-rtl {
+    .default-style .resp-tabs-list li {
+        float: right;
+        margin-left: 40px;
+        margin-right: 0;
+    }
+}

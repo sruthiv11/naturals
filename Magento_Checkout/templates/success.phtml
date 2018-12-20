@@ -1,0 +1,60 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php /** @var $block \Magento\Checkout\Block\Onepage\Success */ 
+$objectManager =  \Magento\Framework\App\ObjectManager::getInstance();        
+$storeManager  = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+$storeID       = $storeManager->getStore()->getStoreId(); 
+$baseurl      = $storeManager->getStore()->getBaseUrl(); 
+$append="naturals-category.html";
+//To get last insert id
+$lastOrderId = $objectManager->get('Magento\Checkout\Model\Session')->getLastRealOrder()->getEntityId();
+
+//Save campaign details to the DB
+if(isset($_SESSION['source']) || isset($_SESSION['campaign'])){
+    $source=$_SESSION['source']; 
+    $campaign=$_SESSION['campaign'];
+    
+    //To get DB connection
+    $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+    $connection = $resource->getConnection();
+  //Update campaign and source to the sales_order table. Custom fields added specifically to save referral details
+  $tableName = $resource->getTableName('sales_order');
+    
+       $sql = "UPDATE $tableName SET source = '".$source."',campaign = '".$campaign."' WHERE entity_id = '".$lastOrderId."'";
+    $connection->query($sql);
+    unset($_SESSION['source']);
+    unset($_SESSION['campaign']);
+}
+?>
+<div class="checkout-success">
+    <?php if ($block->getOrderId()):?>
+        <?php if ($block->getCanViewOrder()) :?>
+            <p><?= __('Your order number is: %1.', sprintf('<a href="%s" class="order-number"><strong>%s</strong></a>', $block->escapeHtml($block->getViewOrderUrl()), $block->escapeHtml($block->getOrderId()))) ?></p>
+        <?php  else :?>
+            <p><?= __('Your order # is: <span>%1</span>.', $block->escapeHtml($block->getOrderId())) ?></p>
+        <?php endif;?>
+            <p><?= /* @escapeNotVerified */ __('We\'ll email you an order confirmation with details and tracking info.') ?></p>
+    <?php endif;?>
+
+    <?= $block->getAdditionalInfoHtml() ?>
+
+    <div class="actions-toolbar">
+        <div class="primary">
+    
+<?php /* coninue button for two differnt storeview	 */ ?>
+<?php if($storeID == 1) :?> 
+<a class="action primary continue"  href="<?= /* @escapeNotVerified */ $block->getContinueUrl() ?>"> <span><?= /* @escapeNotVerified */ __('Continue Shopping') ?></span></a> 
+ <?php else :?>
+<a class="action primary continue" href="<?php echo $baseurl.$append ?>"><span><?= /* @escapeNotVerified */ __('Continue Shopping') ?></span></a> 
+        <?php endif;?>
+
+        </div>
+    </div>
+</div>
